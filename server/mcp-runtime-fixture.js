@@ -1,4 +1,6 @@
 export const FIXTURE_VERSION = "customer-mcp-fixture-v2";
+// Controlled staging build-failure fixture: deliberately missing initializer.
+export const MCP_INTENTIONAL_BUILD_FAILURE_20261021 = ;
 export const RUNTIME_PATH = "/__mcp-test/runtime";
 
 const dummyMessages = new Set([
