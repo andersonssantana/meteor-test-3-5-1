@@ -1,6 +1,10 @@
 import { Meteor } from "meteor/meteor";
 import { LinksCollection } from "/imports/api/links";
 import { Random } from "meteor/random";
+import { WebApp } from "meteor/webapp";
+import { createRuntimeHandler } from "./mcp-runtime-fixture";
+
+WebApp.handlers.use(createRuntimeHandler());
 
 async function insertLink({ title, url }) {
   await LinksCollection.insertAsync({ title, url, createdAt: new Date() });
