@@ -1,4 +1,4 @@
-export const FIXTURE_VERSION = "customer-mcp-fixture-v1";
+export const FIXTURE_VERSION = "customer-mcp-fixture-v2";
 export const RUNTIME_PATH = "/__mcp-test/runtime";
 
 const dummyMessages = new Set([
