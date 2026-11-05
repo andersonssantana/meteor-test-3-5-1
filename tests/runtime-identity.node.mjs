@@ -7,6 +7,7 @@ test("only approved identity fields are collected, never credentials or settings
     env: {
       HOSTNAME: "test-app-7bc6b789d5-abc12",
       MONTI_OPTIONS_HOSTNAME: "test-app-7bc6b789d5-abc12",
+      KADIRA_OPTIONS_HOSTNAME: "legacy-test-host",
       POD_UID: "12345678-abcd-1234-abcd-123456789abc",
       MONTI_APP_SECRET: "secret-sentinel",
       MONTI_APP_ID: "private-app-sentinel",
@@ -19,10 +20,11 @@ test("only approved identity fields are collected, never credentials or settings
     newProcessId: () => "local-correlation-id",
   });
   assert.equal(snapshot.environment.MONTI_OPTIONS_HOSTNAME, snapshot.osHostname);
+  assert.equal(snapshot.environment.KADIRA_OPTIONS_HOSTNAME, "legacy-test-host");
   assert.equal(snapshot.environment.POD_UID, "12345678-abcd-1234-abcd-123456789abc");
   assert.equal(snapshot.environment.GALAXY_CONTAINER_ID, null);
   assert.deepEqual(Object.keys(snapshot.environment), [
-    "HOSTNAME", "MONTI_OPTIONS_HOSTNAME", "GALAXY_CONTAINER_ID",
+    "HOSTNAME", "MONTI_OPTIONS_HOSTNAME", "KADIRA_OPTIONS_HOSTNAME", "GALAXY_CONTAINER_ID",
     "METEOR_CONTAINER_ID", "CONTAINER_ID", "POD_NAME", "POD_UID",
   ]);
   assert.doesNotMatch(JSON.stringify(snapshot), /sentinel|MONGO_URL|METEOR_SETTINGS|MONTI_APP_SECRET|MONTI_APP_ID|OTHER_ENV/);

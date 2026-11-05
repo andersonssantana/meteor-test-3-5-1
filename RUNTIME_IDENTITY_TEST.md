@@ -10,6 +10,7 @@ startup. Read it in the app's private Galaxy logs. It contains:
 
 - `osHostname`: Node's `os.hostname()`.
 - `environment`: the exact values of `HOSTNAME`, `MONTI_OPTIONS_HOSTNAME`,
+  `KADIRA_OPTIONS_HOSTNAME`,
   `GALAXY_CONTAINER_ID`, `METEOR_CONTAINER_ID`, `CONTAINER_ID`, `POD_NAME`,
   and `POD_UID`. Missing or empty variables are `null`.
 - `cgroup`: pod UIDs and 64-character container IDs extracted from
@@ -24,6 +25,10 @@ No new HTTP route, Meteor method, publication or client view exposes the
 snapshot. The diagnostic does not enumerate environment variables or read
 Meteor settings, service-account tokens, Kubernetes APIs or network metadata.
 Unexpected identifier formats are omitted. Existing app behavior is unchanged.
+
+The original deployed commit `770763c` did not collect `KADIRA_OPTIONS_HOSTNAME`.
+The local follow-up includes that field and unit-test coverage, but its actual
+presence or absence has not yet been observed in a production process.
 
 ## Deployment prerequisites
 

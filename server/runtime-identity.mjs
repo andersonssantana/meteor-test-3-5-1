@@ -6,6 +6,7 @@ import { hostname } from "node:os";
 const identityVariables = [
   "HOSTNAME",
   "MONTI_OPTIONS_HOSTNAME",
+  "KADIRA_OPTIONS_HOSTNAME",
   "GALAXY_CONTAINER_ID",
   "METEOR_CONTAINER_ID",
   "CONTAINER_ID",
